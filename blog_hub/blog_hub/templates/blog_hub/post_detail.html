@@ -1,0 +1,28 @@
+{% extends 'blog_hub/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-8 mx-auto">
+        <div class="card text-dark bg-light mb-3 mx-auto" style="max-width: 18rem;">
+            <div class="card-header">{{ post.title }}</div>
+            <div class="card-body">
+              <h5 class="card-title">{{ post.intro }}</h5>
+              <p class="card-text">{{ post.body }}</p>
+              <small>{{ post.date_added }}</small>
+            </div>
+        </div>
+        <div class="col-10 col-md-8 mx-auto mb-3" style="max-height: 5rem; max-width: 18rem;">
+            <form method="POST">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <input class="btn btn-info btn-sm" type="submit", value="post">
+            </form>
+        </div>   
+        </div>
+    </div>  
+</div>
+
+
+{% endblock %}
