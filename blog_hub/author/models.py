@@ -4,7 +4,7 @@ from django.db import models
 class Author(models.Model):
     firstName = models.CharField(max_length=255)
     lastName = models.CharField(max_length=255)
-    username = models.CharField(min_lenght=8)
-    occupation = models.CharField()
+    username = models.CharField(max_length=60)
+    occupation = models.CharField(max_length=60)
     email = models.EmailField(max_length=254)
     signUpDate = models.DateTimeField(auto_now_add=True)
